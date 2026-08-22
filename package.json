@@ -11,7 +11,9 @@
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
+    "@photostructure/tz-lookup": "^11.6.1",
     "express": "^5.2.1",
+    "luxon": "^3.7.2",
     "natalengine": "^1.6.0"
   }
 }
