@@ -7,6 +7,8 @@ const app = express();
 
 app.use(express.json());
 
+app.use('/hexagrams', express.static('public/hexagrams'));
+
 function parseBirthDate(value) {
   if (!value) {
     throw new Error("birthDate is required");
