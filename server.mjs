@@ -5,6 +5,19 @@ import { DateTime } from "luxon";
 
 const app = express();
 
+app.use(
+  '/venn-assets',
+  express.static('public/venn-assets', {
+    setHeaders: (res) => {
+      res.setHeader('Access-Control-Allow-Origin', '*');
+      res.setHeader(
+        'Cache-Control',
+        'public, max-age=31536000, immutable',
+      );
+    },
+  }),
+);
+
 app.use(express.json());
 
 app.use((req, res, next) => {
