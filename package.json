@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node --test",
+    "postinstall": "patch-package"
   },
   "keywords": [],
   "author": "",
@@ -14,6 +15,7 @@
     "@photostructure/tz-lookup": "^11.6.1",
     "express": "^5.2.1",
     "luxon": "^3.7.2",
-    "natalengine": "^1.6.0"
+    "natalengine": "1.6.0",
+    "patch-package": "8.0.1"
   }
 }

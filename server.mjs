@@ -2,6 +2,7 @@ import express from "express";
 import { calculateHumanDesign } from "natalengine";
 import tzlookup from "@photostructure/tz-lookup";
 import { DateTime } from "luxon";
+import { pathToFileURL } from "node:url";
 
 const app = express();
 
@@ -193,6 +194,9 @@ app.post("/human-design", (req, res) => {
 
 const PORT = process.env.PORT || 3000;
 
-app.listen(PORT, "0.0.0.0", () => {
-  console.log(`Venn NatalEngine API running on port ${PORT}`);
-});
+export { app };
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+  app.listen(PORT, "0.0.0.0", () => {
+    console.log(`Venn NatalEngine API running on port ${PORT}`);
+  });
+}
