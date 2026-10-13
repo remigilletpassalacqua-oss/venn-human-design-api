@@ -94,6 +94,7 @@ test('the Venn HTTP endpoint returns the corrected chart and birth timezone', as
     });
     assert.equal(response.status, 200);
     const chart = await response.json();
+    assert.equal(chart.calculationVersion, 'venn-api-v2');
     assert.equal(chart.vennInput.ianaTimezone, 'Europe/Paris');
     assert.equal(chart.vennInput.timezone, 1);
     assert.equal(chart.gates.design.moon.gate, 39);

@@ -5,6 +5,11 @@ import { DateTime } from "luxon";
 import { pathToFileURL } from "node:url";
 
 const app = express();
+const calculationVersion = 'venn-api-v2';
+
+app.get('/health', (_req, res) => {
+  res.json({ status: 'ok', calculationVersion });
+});
 
 app.use(
   '/venn-assets',
@@ -177,6 +182,7 @@ app.post("/human-design", (req, res) => {
 
     res.json({
       ...chart,
+      calculationVersion,
 
       vennInput: {
         birthDate: normalizedBirthDate,
